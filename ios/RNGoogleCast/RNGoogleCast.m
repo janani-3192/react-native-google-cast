@@ -129,7 +129,7 @@ RCT_EXPORT_METHOD(toggleSubtitles: (BOOL) enabled languageCode:(NSString *) lang
   }
   
   for(GCKMediaTrack *track in mediaTracks) {
-    if (track != nil && [[track languageCode] isEqualToString:languageToSelect]) {
+    if (track != nil && track.type == 1 && [[track languageCode] isEqualToString:languageToSelect]) {
       [castSession.remoteMediaClient setActiveTrackIDs:@[@(track.identifier)]];
       return;
     }
